@@ -1,0 +1,22 @@
+//Contoh Tanpa Menerapkan LSP
+class Kendaraan:
+    def nyalakan_mesin(self):
+        print("Mesin menyala!")
+
+class MobilDhafin(Kendaraan):
+    def nyalakan_mesin(self):
+        print("Mobil Dhafin menyala...")
+
+class SepedaWisnu(Kendaraan):
+    def nyalakan_mesin(self):
+        raise Exception("Sepeda Wisnu tidak memiliki mesin!")
+
+def nyalakan_kendaraan(kendaraan: Kendaraan):
+    kendaraan.nyalakan_mesin()
+
+# Penggunaan
+mobil_dhafin = MobilDhafin()
+nyalakan_kendaraan(mobil_dhafin)  # Berjalan dengan baik
+
+sepeda_wisnu = SepedaWisnu()
+nyalakan_kendaraan(sepeda_wisnu)  # Menimbulkan exception, melanggar LSP
