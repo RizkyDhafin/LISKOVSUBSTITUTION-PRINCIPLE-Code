@@ -1,0 +1,26 @@
+//Contoh Dengan Menerapkan LSP
+class Kendaraan:
+    def klakson(self):
+        print("Klakson berbunyi!")
+
+class KendaraanBermesin(Kendaraan):
+    def nyalakan_mesin(self):
+        print("Mesin menyala!")
+
+class MobilDhafin(KendaraanBermesin):
+    def nyalakan_mesin(self):
+        print("Mobil Dhafin menyala...")
+
+class SepedaWisnu(Kendaraan):
+    def gowes(self):
+        print("Sepeda Wisnu dikayuh...")
+
+def nyalakan_kendaraan(kendaraan: KendaraanBermesin):
+    kendaraan.nyalakan_mesin()
+
+# Penggunaan
+mobil_dhafin = MobilDhafin()
+nyalakan_kendaraan(mobil_dhafin)  # Berjalan dengan baik
+
+sepeda_wisnu = SepedaWisnu()
+# nyalakan_kendaraan(sepeda_wisnu)  # Ini tidak akan berjalan karena SepedaWisnu bukan KendaraanBermesin
